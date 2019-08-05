@@ -1,0 +1,14 @@
+/target/
+/.classpath
+/.settings/
+/.project
+
+/pjmall-backend/target/
+/pjmall-backend/.classpath
+/pjmall-backend/.settings/
+/pjmall-backend/.project
+
+/pjmall-frontend/.settings/
+/pjmall-frontend/.classpath
+/pjmall-frontend/target/
+/pjmall-frontend/.project
