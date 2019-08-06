@@ -37,9 +37,11 @@
                 </div>
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">로그인</button>
             </form>
-            <a href="javascript:loginForm.submit();" class="forgot-password">
-                비밀번호를 잊으셨습니까?
-            </a>
+            <c:if test="${result == 'fail' }">
+						<p style="font-size: 15px; color: red;">
+							${message}
+						</p>	
+					</c:if>	
         </div>
         <!-- /.card-container -->
 	</div>

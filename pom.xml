@@ -46,6 +46,5 @@
 	<modules>
 		<module>pjmall-backend</module>
 		<module>pjmall-frontend</module>
-		<module>shopping-backend</module>
 	</modules>
 </project>

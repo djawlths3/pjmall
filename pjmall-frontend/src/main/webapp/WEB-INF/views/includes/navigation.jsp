@@ -18,56 +18,100 @@
 						<li class="nav-item">
 							<a class="nav-link" href="/">홈</a>
 						</li>
-						<li class="nav-item active">
-							<a class="nav-link" href="${pageContext.servletContext.contextPath }/user/login">로그인<span class="sr-only">(current)</span></a>
-						</li>
+						<c:choose>
+							<c:when test='${empty authUser }'>
+							<li class="nav-item active">
+								<a class="nav-link" href="${pageContext.servletContext.contextPath }/user/login">로그인<span class="sr-only">(current)</span></a>
+							</li>
+							</c:when>
+							<c:otherwise>
+							<li class="nav-item active">
+								<a class="nav-link" href="${pageContext.servletContext.contextPath }/user/logout">로그아웃<span class="sr-only">(current)</span></a>
+							</li>
+							<c:if test='${authUser.grade == "master" }'>
+								<li class="nav-item">
+									<a class="nav-link" href="${pageContext.servletContext.contextPath }/manage/">관리자 메뉴</a>
+								</li>
+							</c:if>
+							</c:otherwise>
+						</c:choose>
 						<li class="nav-item">
 							<a class="nav-link" href="${pageContext.servletContext.contextPath }/user/join">회원가입</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="${pageContext.servletContext.contextPath }/cs">고객센터</a>
 						</li>
 					</c:when>
 					<c:when test='${param.active == "join" }'>
 						<li class="nav-item">
 							<a class="nav-link" href="${pageContext.servletContext.contextPath }">홈</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="${pageContext.servletContext.contextPath }/user/login">로그인</a>
-						</li>
+						<c:choose>
+							<c:when test='${empty authUser }'>
+							<li class="nav-item">
+								<a class="nav-link" href="${pageContext.servletContext.contextPath }/user/login">로그인<span class="sr-only"></span></a>
+							</li>
+							</c:when>
+							<c:otherwise>
+							<li class="nav-item">
+								<a class="nav-link" href="${pageContext.servletContext.contextPath }/user/logout">로그아웃<span class="sr-only"></span></a>
+							</li>
+							<c:if test='${authUser.grade == "master" }'>
+								<li class="nav-item">
+									<a class="nav-link" href="${pageContext.servletContext.contextPath }/manage/">관리자 메뉴</a>
+								</li>
+							</c:if>
+							</c:otherwise>
+						</c:choose>
 						<li class="nav-item active">
 							<a class="nav-link" href="${pageContext.servletContext.contextPath }/user/join">회원가입<span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="${pageContext.servletContext.contextPath }/cs">고객센터</a>
 						</li>
 					</c:when>
 					<c:when test='${param.active == "cs" }'>
 						<li class="nav-item">
 							<a class="nav-link" href="${pageContext.servletContext.contextPath }">홈</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="${pageContext.servletContext.contextPath }/user/login">로그인</a>
-						</li>
+						<c:choose>
+							<c:when test='${empty authUser }'>
+							<li class="nav-item">
+								<a class="nav-link" href="${pageContext.servletContext.contextPath }/user/login">로그인<span class="sr-only"></span></a>
+							</li>
+							</c:when>
+							<c:otherwise>
+							<li class="nav-item">
+								<a class="nav-link" href="${pageContext.servletContext.contextPath }/user/logout">로그아웃<span class="sr-only"></span></a>
+							</li>
+							<c:if test='${authUser.getGrade() == "master" }'>
+								<li class="nav-item">
+									<a class="nav-link" href="${pageContext.servletContext.contextPath }/manage/">관리자 메뉴</a>
+								</li>
+							</c:if>
+							</c:otherwise>
+						</c:choose>
 						<li class="nav-item">
 							<a class="nav-link" href="${pageContext.servletContext.contextPath }/user/join">회원가입</a>
-						</li>
-						<li class="nav-item active">
-							<a class="nav-link" href="${pageContext.servletContext.contextPath }/cs">고객센터<span class="sr-only">(current)</span></a>
 						</li>
 					</c:when>					
 					<c:otherwise>
 						<li class="nav-item active">
 							<a class="nav-link" href="${pageContext.servletContext.contextPath }">홈<span class="sr-only">(current)</span></a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="${pageContext.servletContext.contextPath }/user/login">로그인</a>
-						</li>
+						<c:choose>
+							<c:when test='${empty authUser }'>
+							<li class="nav-item">
+								<a class="nav-link" href="${pageContext.servletContext.contextPath }/user/login">로그인<span class="sr-only"></span></a>
+							</li>
+							</c:when>
+							<c:otherwise>
+							<li class="nav-item">
+								<a class="nav-link" href="${pageContext.servletContext.contextPath }/user/logout">로그아웃<span class="sr-only"></span></a>
+							</li>
+							<c:if test='${authUser.grade == "master" }'>
+								<li class="nav-item">
+									<a class="nav-link" href="${pageContext.servletContext.contextPath }/manage/">관리자 메뉴</a>
+								</li>
+							</c:if>
+							</c:otherwise>
+						</c:choose>
 						<li class="nav-item">
 							<a class="nav-link" href="${pageContext.servletContext.contextPath }/user/join">회원가입</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="${pageContext.servletContext.contextPath }/cs">고객센터</a>
 						</li>
 					</c:otherwise>				
 				</c:choose>
