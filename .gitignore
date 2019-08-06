@@ -12,3 +12,9 @@
 /pjmall-frontend/.classpath
 /pjmall-frontend/target/
 /pjmall-frontend/.project
+
+
+/shopping-backend/target/
+/shopping-backend/.classpath
+/shopping-backend/.settings/
+/shopping-backend/.project
