@@ -16,7 +16,7 @@
 				<c:choose>
 					<c:when test='${param.active == "login" }'>
 						<li class="nav-item">
-							<a class="nav-link" href="${pageContext.servletContext.contextPath }">홈</a>
+							<a class="nav-link" href="/">홈</a>
 						</li>
 						<li class="nav-item active">
 							<a class="nav-link" href="${pageContext.servletContext.contextPath }/user/login">로그인<span class="sr-only">(current)</span></a>

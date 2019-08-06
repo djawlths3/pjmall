@@ -9,4 +9,8 @@ import java.lang.annotation.Target;
 @Retention(RUNTIME)
 @Target(PARAMETER)
 public @interface AuthUser {
+	
+public enum Role {USER, MASTER}
+	
+	public Role role() default Role.USER;
 }

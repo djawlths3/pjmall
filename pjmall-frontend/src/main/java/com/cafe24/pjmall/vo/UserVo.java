@@ -1,71 +1,130 @@
 package com.cafe24.pjmall.vo;
 
-
-import javax.validation.constraints.Pattern;
-
 import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.cafe24.pjmall.validator.constraint.ValidId;
+import com.cafe24.pjmall.validator.constraint.ValidPassword;
+import com.cafe24.pjmall.validator.constraint.ValidPhoneNumber;
+
 
 public class UserVo {
 	private Long no;
-
+	
+	@ValidId
+	private String id;
+	
 	@NotEmpty
-	@Length(min=2, max=8)
-	private String name;
-
 	@Email
-	@NotEmpty
 	private String email;
 	
-	@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$", message = "잘못된 비밀번호 형식입니다.")
-	@NotEmpty
+	@ValidPassword 
 	private String password;
+	private String name;
+	private String joinDate;
+	private String address;
+	private String addressDetail;
 	
-	@NotEmpty
-	private String gender;
+	@ValidPhoneNumber
+	private String phoneNumber;
+	private String grade;
+	private String certification;
 
-	private String role = "ROLE_USER";
-	
+	public UserVo() {
+
+	}
+
+	public String getCertification() {
+		return certification;
+	}
+
+	public void setCertification(String certification) {
+		this.certification = certification;
+	}
+
 	public Long getNo() {
 		return no;
 	}
+
 	public void setNo(Long no) {
 		this.no = no;
 	}
-	public String getName() {
-		return name;
+
+	public String getId() {
+		return id;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setId(String id) {
+		this.id = id;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getGender() {
-		return gender;
+
+	public String getName() {
+		return name;
 	}
-	public void setGender(String gender) {
-		this.gender = gender;
+
+	public void setName(String name) {
+		this.name = name;
 	}
+
+	public String getJoinDate() {
+		return joinDate;
+	}
+
+	public void setJoinDate(String joinDate) {
+		this.joinDate = joinDate;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getAddressDetail() {
+		return addressDetail;
+	}
+
+	public void setAddressDetail(String addressDetail) {
+		this.addressDetail = addressDetail;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getGrade() {
+		return grade;
+	}
+
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+
 	public String getRole() {
-		return role;
+		// TODO Auto-generated method stub
+		return null;
 	}
-	public void setRole(String role) {
-		this.role = role;
-	}
-	@Override
-	public String toString() {
-		return "UserVo [no=" + no + ", name=" + name + ", email=" + email + ", password=" + password + ", gender="
-				+ gender + ", role=" + role + "]";
-	}
+
 }
