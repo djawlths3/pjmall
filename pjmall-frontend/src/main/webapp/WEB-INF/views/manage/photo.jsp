@@ -61,32 +61,31 @@
 					<div class="row">
 						<div class="col-lg-8 mx-auto">
 							<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-							<form name="sentMessage" id="contactForm" novalidate="novalidate">
-								<input type="hidden" value=${prdocutNo } name='productNo'/>
-								<br>
+							<form name="sentMessage" id="contactForm" novalidate="novalidate" action="/manage/product/photoAdd" method="post" enctype="multipart/form-data">
+								<input type="hidden" value='${prdocutNo }' name='productNo'/>
+								<br>								
+							
 								<div class="control-group">
 									<div class="row">
 										<div class="imgUp">
 											<div class="imagePreview"></div>
 											<label class="btn btn-primary"> 썸네일<input
-												type="file" class="uploadFile img" value="Upload Photo"
-												style="width: 0px; height: 0px; overflow: hidden;">
+												type="file" class="uploadFile img" name='productImg'
+												style="width: 0px; height: 0px; overflow: hidden;" multiple>
 											</label>
 										</div>
 										<i class="fa fa-plus imgAdd"></i>
 									</div>								
 								</div>
+								 
 								<br>
-					
-								
 								<hr/>		
 								<!-- container -->
 								<br>	
 								<div id="success"></div>
 								<div class="form-group">
 									<center>
-									<button type="button" class="btn btn-primary btn-xl"
-										id="sendProductButton">Send</button>
+									<button type="submit" class="btn btn-primary btn-xl">Send</button>
 										</center>
 								</div>
 

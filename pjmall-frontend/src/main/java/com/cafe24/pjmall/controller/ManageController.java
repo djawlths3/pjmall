@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.cafe24.pjmall.dto.JSONResult;
 import com.cafe24.pjmall.util.JsonTrans;
@@ -56,8 +57,16 @@ public class ManageController {
 	}
 	
 	@RequestMapping(value = "/product/photo",  method = RequestMethod.GET)
-	public String photo(@RequestParam(value="productNo", required=true) String prdocutNo, Model model) {	
-		model.addAttribute("prdocutNo", prdocutNo);		
+	public String photo(@RequestParam(value="productNo", required=true) String productNo, Model model) {	
+		model.addAttribute("prdocutNo", productNo);		
+		return "manage/photo";
+	}
+	
+	@RequestMapping(value = "/product/photoAdd",  method = RequestMethod.POST)
+	public String photoAdd(@ModelAttribute ProductVo productVo, 
+			@RequestParam(value="productImg") List<MultipartFile> productImg,
+			Model model) {	
+		System.out.println(productImg);
 		return "manage/photo";
 	}
 }
