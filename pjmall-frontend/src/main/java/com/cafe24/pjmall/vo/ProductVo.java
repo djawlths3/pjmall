@@ -1,6 +1,7 @@
 package com.cafe24.pjmall.vo;
 
 import java.util.List;
+import java.util.Map;
 
 public class ProductVo {
 
@@ -22,12 +23,12 @@ public class ProductVo {
 	private String productSort; //상품정렬
 	private long stockNo; //재고 번호
 	
-	private List option; //옵션s
+	private List<Map<String, String>> option; //옵션s
 	
-	public List getOption() {
+	public List<Map<String, String>> getOption() {
 		return option;
 	}
-	public void setOption(List option) {
+	public void setOption(List<Map<String, String>> option) {
 		this.option = option;
 	}
 	public long getStockNo() {

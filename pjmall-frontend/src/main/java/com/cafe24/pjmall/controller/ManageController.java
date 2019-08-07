@@ -15,11 +15,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.cafe24.pjmall.dto.JSONResult;
 import com.cafe24.pjmall.util.JsonTrans;
 import com.cafe24.pjmall.vo.ProductVo;
+import com.cafe24.pjmall.vo.UserVo;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -43,9 +48,16 @@ public class ManageController {
 		return "manage/product";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value = "/product/add", method = RequestMethod.POST)
 	public String productAdd(@RequestBody ProductVo productVo) {		
-		System.out.println(productVo);
-		return "manage/product";
+		ResponseEntity<String> obj = restTemplate.postForEntity("http://localhost:8080/server/api/product/add", productVo, String.class);		
+		return obj.getBody();
+	}
+	
+	@RequestMapping(value = "/product/photo",  method = RequestMethod.GET)
+	public String photo(@RequestParam(value="productNo", required=true) String prdocutNo, Model model) {	
+		model.addAttribute("prdocutNo", prdocutNo);		
+		return "manage/photo";
 	}
 }

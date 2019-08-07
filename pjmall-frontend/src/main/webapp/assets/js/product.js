@@ -40,7 +40,7 @@ $(document).ready(function(){
 			options.push(option)
 		}
 		
-
+		data.categoryNo = category
 		data.productName = productName
 		data.price = price
 		data.productEtc = etc
@@ -50,10 +50,18 @@ $(document).ready(function(){
 			url : '/manage/product/add',
 			contentType: 'application/json',
 			type : 'POST',
-			data:{'price' : null},
+			data: JSON.stringify(data),
 			dataType : 'json',
 			success : function(result) {
-				console.log(result)
+				var json = JSON.parse(result)
+				if	(json.result =='success'){
+					location.assign("/manage/product/photo?productNo="+json.data.productNo);
+				}else {
+					alert('상품등록에 실패하였습니다');
+				}
+			},
+			error : function(e) {
+                alert('서버 연결 도중 에러가 났습니다. 다시 시도해 주십시오.');
 			}
 		})
 		

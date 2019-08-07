@@ -55,56 +55,15 @@
 
 					<!-- Contact Section Heading -->
 					<h2
-						class="page-section-heading text-center text-uppercase text-secondary mb-0">상품등록</h2>
+						class="page-section-heading text-center text-uppercase text-secondary mb-0">사진추가</h2>
 
 					<!-- Contact Section Form -->
 					<div class="row">
 						<div class="col-lg-8 mx-auto">
 							<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
 							<form name="sentMessage" id="contactForm" novalidate="novalidate">
-								<div class="control-group">
-									<div
-										class="form-group floating-label-form-group controls mb-0 pb-2">
-										<label>카테고리</label> <select id='category' name='categortNo'
-											class="browser-default custom-select">
-											<option selected>카테고리선택</option>
-											<option value="7">One</option>
-											<option value="7">Two</option>
-											<option value="7">Three</option>
-										</select>
-									</div>
-								</div>
-								<div class="control-group">
-									<div
-										class="form-group floating-label-form-group controls mb-0 pb-2">
-										<label>상품명</label> <input class="form-control"
-											id="productName" type="text" placeholder="상품명"
-											required="required"
-											data-validation-required-message="Please enter your name.">
-										<p class="help-block text-danger"></p>
-									</div>
-								</div>
-								<div class="control-group">
-									<div
-										class="form-group floating-label-form-group controls mb-0 pb-2">
-										<label>가격</label> <input class="form-control" id="price"
-											type="text" placeholder="가격" required="required"
-											data-validation-required-message="Please enter price.">
-										<p class="help-block text-danger"></p>
-									</div>
-								</div>
-								<div class="control-group">
-									<div
-										class="form-group floating-label-form-group controls mb-0 pb-2">
-										<label>설명</label>
-										<textarea class="form-control" id="etc" rows="5"
-											placeholder="설명" required="required"
-											data-validation-required-message="Please enter a etc"></textarea>
-										<p class="help-block text-danger"></p>
-									</div>
-								</div>
+								<input type="hidden" value=${prdocutNo } name='productNo'/>
 								<br>
-								<!-- 
 								<div class="control-group">
 									<div class="row">
 										<div class="imgUp">
@@ -118,28 +77,17 @@
 									</div>								
 								</div>
 								<br>
-								 -->
+					
 								
-								<hr/>
-								<div class="row">
-									<div class="productOptions">
-										<label>사이즈</label> <input class="productOption productSize" type="text" placeholder="사이즈" required="required">
-									</div>
-									<div class="productOptions">
-										<label>색상</label> <input class="productOption productColor" type="text" placeholder="색상" required="required">
-									</div>
-									<div class="productOptions">										
-										<label>수량</label> <input class="productOption productQuantity" type="text" placeholder="수량" required="required">
-									</div>
-									<i class="fa fa-plus optAdd"></i>
-								</div>
-								
+								<hr/>		
 								<!-- container -->
 								<br>	
 								<div id="success"></div>
 								<div class="form-group">
+									<center>
 									<button type="button" class="btn btn-primary btn-xl"
 										id="sendProductButton">Send</button>
+										</center>
 								</div>
 
 							</form>
