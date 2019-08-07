@@ -1,5 +1,7 @@
 package com.cafe24.pjmall.vo;
 
+import java.util.List;
+
 public class ProductVo {
 
 	private long productNo; //상품번호
@@ -20,7 +22,14 @@ public class ProductVo {
 	private String productSort; //상품정렬
 	private long stockNo; //재고 번호
 	
+	private List option; //옵션s
 	
+	public List getOption() {
+		return option;
+	}
+	public void setOption(List option) {
+		this.option = option;
+	}
 	public long getStockNo() {
 		return stockNo;
 	}

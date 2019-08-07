@@ -18,11 +18,4 @@ public class JsonTrans {
 		return elementData;
 	}
 	
-
-	public static JsonObject StringToArray(String json) {
-		JsonParser parser = new JsonParser();
-		JsonElement element = parser.parse(json);
-		JsonObject elementData = element.getAsJsonObject();
-		return elementData;
-	}
 }

@@ -29,7 +29,7 @@
 	<!-- /.Navigation -->
 
 	<div class="container">
-		<div class="row">
+		<div class="row" style="height: 777px;">
 
 			<div class="col-lg-3">
 				<h1 class="my-4">PJMall</h1>
@@ -42,10 +42,10 @@
 			</div>
 
 			<div class="col-lg-9">
-				<div    style="height: 36%; font-size: 37px; text-align: center; padding-top: 10px;" >유저 목록</div>
+				<div style="height: 13%; font-size: 37px; text-align: center; padding-top: 10px;" >유저 목록 (${fn:length(userList) })</div>
 
-				<div class="row" style="height: 500px">
-					<table class="table table-condensed">
+				<div class="row" style="height: 500px; overflow: auto;">
+					<table id='userListTable' class="table table-condensed">
 						<thead>
 							<tr>
 								<th>이름</th>
@@ -56,23 +56,17 @@
 								<th>가입날짜</th>
 							</tr>
 						</thead>
-						<tbody id='tbody'>
+						<tbody>
+						<c:forEach items='${userList }' var='user' varStatus="index">	
 							<tr>
-								<td>엄기윤</td>
-								<td>djawlths3</td>
-								<td>john@example.com</td>
-								<td>왕십리 그 어딘가 abcdefg하하하하호호호호호하하하하핳</td>
-								<td>01095590484</td>
-								<td>2019-08-06</td>						
+								<td>${user.name }</td>
+								<td>${user.id }</td>
+								<td>${user.email }</td>
+								<td>${user.address}  ${user.addressDetail } </td>
+								<td>${user.phoneNumber }</td>
+								<td>${user.joinDate	}</td>						
 							</tr>	
-							<tr>
-								<td>엄기윤</td>
-								<td>djawlths3</td>
-								<td>john@example.com</td>
-								<td>왕십리 그 어딘가 abcdefg하하하하호호호호호하하하하핳</td>
-								<td>01095590484</td>
-								<td>2019-08-06</td>						
-							</tr>							
+						</c:forEach>							
 						</tbody>
 					</table>
 

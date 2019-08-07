@@ -35,9 +35,8 @@ public class UserController {
 		ResponseEntity<String> obj = restTemplate.postForEntity("http://localhost:8080/server/api/user/login", userVo, String.class);
 		JsonObject json = jsonTrans.StringToJson(obj.getBody());
 		if("success".equals(json.get("result").getAsString())) {
-			Gson gson = new Gson();
 			//session.setAttribute("authUser", json.get("data").getAsJsonObject());
-			UserVo vo = gson.fromJson(json.get("data"), UserVo.class);
+			UserVo vo = new Gson().fromJson(json.get("data"), UserVo.class);
 			session.setAttribute("authUser", vo);
 			return "main/index";
 		}
