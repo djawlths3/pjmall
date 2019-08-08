@@ -48,12 +48,12 @@
 					<table id='userListTable' class="table table-condensed">
 						<thead>
 							<tr>
-								<th>이름</th>
+								<th style="width: 100px;">이름</th>
 								<th>id</th>
 								<th>Email</th>
 								<th>주소</th>
 								<th>전화번호</th>
-								<th>가입날짜</th>
+								<th style="width: 110px;">가입날짜</th>
 							</tr>
 						</thead>
 						<tbody>
