@@ -55,7 +55,7 @@
 
 					<!-- Contact Section Heading -->
 					<h2
-						class="page-section-heading text-center text-uppercase text-secondary mb-0">상품등록</h2>
+						class="page-section-heading text-center text-uppercase text-secondary mb-0">상품등록 </h2>
 
 					<!-- Contact Section Form -->
 					<div class="row">
@@ -67,10 +67,11 @@
 										class="form-group floating-label-form-group controls mb-0 pb-2">
 										<label>카테고리</label> <select id='category' name='categortNo'
 											class="browser-default custom-select">
-											<option selected>카테고리선택</option>
-											<option value="7">One</option>
-											<option value="7">Two</option>
-											<option value="7">Three</option>
+											<option selected value='no'>카테고리선택</option>
+											<c:forEach items='${categoryList }' var='category' varStatus="index">	
+												<fmt:parseNumber var="no" value="${category.categoryNo }" integerOnly="true" />
+												<option value="${no }">${category.categoryName }</option>
+											</c:forEach>
 										</select>
 									</div>
 								</div>
@@ -104,21 +105,6 @@
 									</div>
 								</div>
 								<br>
-								<!-- 
-								<div class="control-group">
-									<div class="row">
-										<div class="imgUp">
-											<div class="imagePreview"></div>
-											<label class="btn btn-primary"> 썸네일<input
-												type="file" class="uploadFile img" value="Upload Photo"
-												style="width: 0px; height: 0px; overflow: hidden;">
-											</label>
-										</div>
-										<i class="fa fa-plus imgAdd"></i>
-									</div>								
-								</div>
-								<br>
-								 -->
 								
 								<hr/>
 								<div class="row">

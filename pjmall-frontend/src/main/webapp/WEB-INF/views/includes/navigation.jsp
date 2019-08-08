@@ -16,7 +16,7 @@
 				<c:choose>
 					<c:when test='${param.active == "login" }'>
 						<li class="nav-item">
-							<a class="nav-link" href="/">홈</a>
+							<a class="nav-link" href="/main">홈</a>
 						</li>
 						<c:choose>
 							<c:when test='${empty authUser }'>
@@ -41,7 +41,7 @@
 					</c:when>
 					<c:when test='${param.active == "join" }'>
 						<li class="nav-item">
-							<a class="nav-link" href="${pageContext.servletContext.contextPath }">홈</a>
+							<a class="nav-link" href="${pageContext.servletContext.contextPath }/main">홈</a>
 						</li>
 						<c:choose>
 							<c:when test='${empty authUser }'>
@@ -66,7 +66,7 @@
 					</c:when>
 					<c:when test='${param.active == "cs" }'>
 						<li class="nav-item">
-							<a class="nav-link" href="${pageContext.servletContext.contextPath }">홈</a>
+							<a class="nav-link" href="${pageContext.servletContext.contextPath }/main">홈</a>
 						</li>
 						<c:choose>
 							<c:when test='${empty authUser }'>
@@ -91,7 +91,7 @@
 					</c:when>					
 					<c:otherwise>
 						<li class="nav-item active">
-							<a class="nav-link" href="${pageContext.servletContext.contextPath }">홈<span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="${pageContext.servletContext.contextPath }/main">홈<span class="sr-only">(current)</span></a>
 						</li>
 						<c:choose>
 							<c:when test='${empty authUser }'>

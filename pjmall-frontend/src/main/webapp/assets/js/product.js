@@ -28,11 +28,16 @@ $(document).ready(function(){
 		$productColor = $('.productColor')
 		$productQuantity = $('.productQuantity')
 		
+		if(category == 'no'){
+			alert('카테고리는 필수 항목 입니다')
+			return
+		}
+		
 		for(let i=0; i<$productSize.length; i++){
 			let option = {}
 			if($productSize[i].value =='' || $productColor[i].value =='' || $productQuantity[i].value==''){
 				alert('옵션은 필수 항목 입니다')
-				break
+				return
 			}
 			option.size = $productSize[i].value
 			option.color = $productColor[i].value

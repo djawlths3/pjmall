@@ -31,17 +31,14 @@
                 <input type="id" id="inputId" class="form-control" placeholder="ID" name="id" required autofocus>
                 <input type="password" id="inputPassword" class="form-control" placeholder="비밀번호" name="password" required>
                 <div id="remember" class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me"> 자동 로그인
-                    </label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">로그인</button>
             </form>
             <c:if test="${result == 'fail' }">
-						<p style="font-size: 15px; color: red;">
-							${message}
-						</p>	
-					</c:if>	
+				<p style="font-size: 15px; color: red;">
+					${message}
+				</p>	
+			</c:if>	
         </div>
         <!-- /.card-container -->
 	</div>

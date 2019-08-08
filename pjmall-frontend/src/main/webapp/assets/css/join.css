@@ -1,0 +1,19 @@
+.joinForm {
+    padding: 40px;
+    background-color: #f4efdc;
+}
+
+.modal-header{
+	background-color: #1c95a8;
+    color: white;
+}
+
+.close{
+	color: white;
+}
+
+.modal-contents{
+	text-align: center;
+    font-size: 20px;
+}
+

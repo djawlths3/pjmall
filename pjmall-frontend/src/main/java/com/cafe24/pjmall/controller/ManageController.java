@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -22,18 +23,20 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cafe24.pjmall.dto.JSONResult;
+import com.cafe24.pjmall.service.ManageService;
 import com.cafe24.pjmall.util.JsonTrans;
 import com.cafe24.pjmall.vo.ProductVo;
 import com.cafe24.pjmall.vo.UserVo;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 @Controller
 @RequestMapping("/manage")
 public class ManageController {
-	JsonTrans jsonTrans = new JsonTrans();
-	RestTemplate restTemplate = new RestTemplate();
+	private JsonTrans jsonTrans = new JsonTrans();
+	private RestTemplate restTemplate = new RestTemplate();
+	@Autowired
+	private ManageService manageService;
 	
 	@RequestMapping( {"", "/user","/"} )
 	public String userList(HttpSession session, Model model) {		
@@ -46,6 +49,10 @@ public class ManageController {
 	
 	@RequestMapping("/product")
 	public String product(HttpSession session, Model model) {		
+		ResponseEntity<String> obj = restTemplate.getForEntity("http://localhost:8080/server/api/category/list", String.class);
+		JsonObject json = jsonTrans.StringToJson(obj.getBody());
+		List li = new Gson().fromJson(json.get("data"), List.class);
+		model.addAttribute("categoryList", li);		
 		return "manage/product";
 	}
 	
@@ -66,7 +73,13 @@ public class ManageController {
 	public String photoAdd(@ModelAttribute ProductVo productVo, 
 			@RequestParam(value="productImg") List<MultipartFile> productImg,
 			Model model) {	
-		System.out.println(productImg);
-		return "manage/photo";
+		productVo.setImgOptions(manageService.fileUpload(productImg));	
+		ResponseEntity<String> obj = restTemplate.postForEntity("http://localhost:8080/server/api/product/img/add", productVo, String.class);
+		JsonObject json = jsonTrans.StringToJson(obj.getBody());
+		if(json.get("data").getAsBoolean()) {
+			return "redirect:/main";
+		}
+		
+		return "redirect:/product/photo?productNo="+productVo.getProductNo();
 	}
 }

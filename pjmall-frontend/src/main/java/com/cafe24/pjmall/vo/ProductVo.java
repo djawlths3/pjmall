@@ -25,6 +25,16 @@ public class ProductVo {
 	
 	private List<Map<String, String>> option; //옵션s
 	
+	private List<String> imgOptions; //이미지 옵션s
+	
+	
+	
+	public List<String> getImgOptions() {
+		return imgOptions;
+	}
+	public void setImgOptions(List<String> imgOptions) {
+		this.imgOptions = imgOptions;
+	}
 	public List<Map<String, String>> getOption() {
 		return option;
 	}
